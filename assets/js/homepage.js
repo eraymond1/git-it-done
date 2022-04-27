@@ -1,7 +1,17 @@
-var getUserRepos = function() {
+var getUserRepos = function(user) {
 
-    fetch("https://api.github.com/users/octocat/repos");
-    console.log("fucntion was called");
+    var apiURL = "https://api.github.com/users/" + user + "/repos";
+
+    fetch(apiURL).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+        });
+    });
+
+
+    // console.log("inside", response);
 };
 
-getUserRepos();
+// console.log("outside");
+
+getUserRepos("eraymond1");
